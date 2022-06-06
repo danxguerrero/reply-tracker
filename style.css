@@ -1,0 +1,48 @@
+body {
+    text-align: center;
+    background-color: #FFE01b;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+    background-color: #fff;
+    width: 75%
+}
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 15px;
+}
+
+th {
+    background-color: #007c89;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttons {
+    color: #fff;
+    background-color: #007c89;
+    font-weight: 500;
+    font-family: Helvetica;
+    font-size: .9375rem;
+    transition: all .15s linear;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+}
+
+.buttons:hover {
+    background-color: #004e56;
+}
+
+.wrapper {
+    background-color: #efeee9;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+

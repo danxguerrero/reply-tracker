@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reply Tracker</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+       <h1 id="header-text">Reply Tracker</h1>
+      </header>
+      <div class="enter-name">
+        <label for="name">Agent Name: </label>
+        <input id="name" type="text" name="name" class="input-name">
+        <br>
+        <br>
+        <button id="btn-name" class="buttons">Enter Name</button>
+        <br>
+        <br>
+      </div>
+      <div class="reply-fields" style="display:none">
+        <label for="ticket">Ticket Number: </label>
+        <input id="ticket" type="text" name="ticket" class="input-ticket" required>
+        <label for=note>Note: </label>
+        <input id="note" type="text" name="note" class="input-note">
+        <br>
+        <br>
+        <button id="btn-enter" class="buttons">Add Reply</button>
+        <br>
+        <br>
+
+        <div id="reply-table" class="table">
+          <table class="center">
+            <thead>
+              <!--<th>Reply Number</th> Commenting out column to test out a total reply counter at top of the page.-->
+              <th>Ticket Number</th>
+              <th>Note</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src=app.js></script>
+  </body>
+</html>
