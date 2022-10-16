@@ -23,10 +23,18 @@ const ticketInput = document.querySelector('.input-ticket');
 const noteInput = document.querySelector('.input-note');
 
 //table Element
-const table = document.querySelector("table");
+const table = document.querySelector('table');
 
 //table body Element
 const list = document.querySelector('tbody');
+
+//table row element
+const tableRow = document.querySelector('tr');
+
+//Delete button for each row
+const deleteBtn = document.querySelector('.hide');
+
+const deleteColumn = document.querySelector('.delete-column');
 
 
 
@@ -62,7 +70,7 @@ function saveName(){
     return;
   } else {
     //Save Agent Name input as a Cookie
-    document.cookie = `name=${nameInput.value}`;
+    document.cookie = `name=${nameInput.value}; expires=Sun, 31 Dec 2099 12:00:00 UTC;`;
     hideName();
     showTracker();
     addGreeting();
@@ -74,15 +82,24 @@ function showInput(){
   list.insertAdjacentHTML(
       'beforeend',
       `<tr id="row${replyNumber}">
+        <td><input type="checkbox" class="select"></td>
         <td>${ticketInput.value}</td>
         <td>${noteInput.value}</td>
-        <td><button class="deleteBtn">Delete</button>
-      </tr>`)
+      </tr>`
+        )
    replyNumber++
    document.getElementById('counterDisplay').innerHTML=`<h3 id="counterDisplay"> Reply count: ${replyNumber}</h3>`;
    ticketInput.value = '';
    noteInput.value = '';
 };
+
+function deleteRow() {
+  document.querySelectorAll('table .select:checked').forEach(e => {
+    e.parentNode.parentNode.remove()
+    replyNumber--
+  document.getElementById('counterDisplay').innerHTML=`<h3 id="counterDisplay"> Reply count: ${replyNumber}</h3>`;
+  });
+}
 
 function deleteReply(e) {
   if (!e.target.classList.contains('deleteBtn')){
@@ -108,4 +125,20 @@ btnEnter.addEventListener('click', () => {
   }
 });
 
+
 table.addEventListener('click', deleteReply);
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
